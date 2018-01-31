@@ -45,7 +45,7 @@ void cocktail_sort_list(listint_t **list)
 			rot = rot->next;
 		if (rot->next == NULL && swap_flag == 1)
 			rot = reverse_swap(&rot, list);
-		if ((rot->prev == NULL || rot->next == NULL) && swap_flag == 0)
+		if (rot->next == NULL && swap_flag == 0)
 			return;
 	}
 }
@@ -70,10 +70,11 @@ listint_t *reverse_swap(listint_t **node, listint_t **list)
 			rot->prev->next = rot->next;
 			if (rot->next != NULL)
 				rot->next->prev = rot->prev;
-			rot->next = *list;
+			rot->next = rot->prev;
 			rot->next->prev = rot;
 			rot->prev = NULL;
 			*list = rot;
+			print_list(*list);
 		}
 		else if (rot->prev->n > rot->n)
 		{
