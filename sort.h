@@ -30,4 +30,6 @@ void swap_n_print(int *x, int *y, int *array, size_t size);
 void shell_sort(int *array, size_t size);
 void cocktail_sort_list(listint_t **list);
 listint_t *reverse_swap(listint_t **node, listint_t **list);
+void counting_sort(int *array, size_t size);
+
 #endif
